@@ -1,0 +1,71 @@
+<body>
+    <form [formGroup]="form" (ngSubmit)="onsubmit()">
+        <div>
+            <label for="name">property Name:</label>
+            <input type="text" id="name" formControlName="name">
+            <div class="errors" *ngIf=" !form.get('name')?.valid && form.get('name')?.touched ">
+                <span *ngIf="form.get('name')?.errors!['required']">property Name Required</span>
+    
+            </div>
+        </div>
+        <div>
+            <label for="propertyType">property Type:</label>
+            <input type="text" id="type" formControlName="type">
+            <div class="errors" *ngIf=" !form.get('type')?.valid && form.get('type')?.touched ">
+                <span *ngIf="form.get('type')?.errors!['required']">property Name Required</span>
+    
+            </div>
+    
+        </div>
+        <div>
+            <label for="address">address:</label>
+            <input type="text" id="address" formControlName="address">
+            <div class="errors" *ngIf=" !form.get('address')?.valid && form.get('address')?.touched ">
+                <span *ngIf="!form.get('address')?.errors!['required']">property Name Required</span>
+    
+            </div>
+        </div>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" formControlName="city">
+            <div class="errors" *ngIf=" !form.get('city')?.valid && form.get('city')?.touched ">
+                <span *ngIf="!form.get('city')?.errors!['required']">property Name Required</span>
+    
+            </div>
+        </div>
+        <div>
+            <label for="price">price:</label>
+            <input type="text" id="price" formControlName="price">
+            <div class="errors" *ngIf=" !form.get('price')?.valid && form.get('price')?.touched ">
+                <span *ngIf="!form.get('price')?.errors!['required']">property Name Required</span>
+    
+            </div>
+        </div>
+        <div>
+            <label for="imageUrl">Image:</label>
+            <input type="text" id="imageUrl"formControlName="imageUrl">
+            <div class="errors" *ngIf=" !form.get('imageUrl')?.valid && form.get('imageUrl')?.touched ">
+                <span *ngIf="!form.get('imageUrl')?.errors!['required']">property Name Required</span>
+    
+            </div>
+        </div>
+        <div>
+            <label for="location">property Location:</label>
+            <input type="text" id="location" formControlName="location">
+            <div class="errors" *ngIf=" !form.get('location')?.valid && form.get('location')?.touched ">
+                <span *ngIf="!form.get('location')?.errors!['required']">property Name Required</span>
+    
+            </div>
+        </div>
+        <div>
+            <label for="country">country:</label>
+            <input type="text" id="country" formControlName="country">
+            <div class="errors" *ngIf=" !form.get('country')?.valid && form.get('country')?.touched ">
+                <span *ngIf="!form.get('country')?.errors!['required']">property Name Required</span>
+    
+            </div>
+        </div>
+        <button type="submit" (click)=" submitForm()"> Add Property</button>
+    
+    </form>
+</body>

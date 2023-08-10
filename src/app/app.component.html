@@ -1,0 +1,22 @@
+<div class="body">
+  
+  <div class="container">
+    <div class="links">
+      <a routerLink="footer" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >FLAMESPROP</a>
+      <a routerLink="allProperty" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="authservice.isLoggedIn()" >Property</a>
+      <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >About Us</a>
+      <a routerLink="RegLandlord" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >Become a Landlord</a>
+      <a routerLink="add" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="authservice.isLoggedIn() && authservice.getRole()" >Add Property</a>
+      <a routerLink="counter" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">counter</a>
+  
+    </div>
+    <div class="links">
+      <a routerLink="UserReg" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="!authservice.isLoggedIn()" >SIGN UP</a>
+      <p *ngIf="authservice.isLoggedIn()" >{{authservice.getUsername()}}</p>
+      <a routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="!authservice.isLoggedIn()"  >LOGIN</a>
+      <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="authservice.isLoggedIn()" (click)="authservice.logout()" >LOGOUT</a>
+    </div>
+  </div>
+    
+  <router-outlet></router-outlet>
+</div>

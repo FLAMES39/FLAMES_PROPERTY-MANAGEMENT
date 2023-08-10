@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="image">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG9" alt="" >
+        <h1>Properties  ({{count}})</h1>
+        <div class="property" *ngIf="properties | async as property ">
+           <div *ngFor="let prop of property; let i=index" class="appartments">
+            <p>{{prop.name}}</p>
+            <p>{{prop.price | currency}}</p>
+            <img src={{prop.imageUrl}} alt=""  >
+            <p>{{prop.location}}</p>
+           </div> 
+        </div>
+    </div>
+
+    <div class=" noProperty" *ngIf="!properties">
+        <p>No Available Properties!!</p>
+    </div>
+    
+</div>
+
+<!-- <ng-template #noProperty>
+    No AVAILABLRE PROPERTIES
+</ng-template> -->

@@ -1,0 +1,119 @@
+
+<!-- <form (ngSubmit)="onsubmit()" >
+    <div formGroupName="personalDetails">
+        <div>
+            <label>Name:</label>
+            <input type="text" formControNmame="name">
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" formControNmame="email">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" formControNmame="password">
+        </div>
+    </div>
+</form> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            /* border: 1px solid #ccc;
+      border-radius: 4px; */
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        button {
+            color: white;
+            background: green;
+            font-size: 1rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <form (ngSubmit)="onsubmit()" >
+        <div formGroupName="personalDetails">
+            <label for="name">Name:</label>
+            <div class="error"
+                *ngIf="!form.get('personalDetails.name')?.valid && form.get('personalDetails.name')?.touched">
+
+                <p *ngIf="form.get('personalDetails.name')!.errors!['required']">name is required</p>
+                <p *ngIf="form.get('personalDetails.name')!.errors!['unAllowedName']">Username not allowed</p>
+            </div>
+            <input type="text" id="name" formControlName="name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" formControlName="email">
+            <div class="error"
+                *ngIf="!form.get('personalDetails.email')?.valid && form.get('personalDetails.email')?.touched">
+                <p *ngIf="form.get('personalDetails.email')!.errors!['required']">email is required</p>
+                <p *ngIf="form.get('personalDetails.email')!.errors!['emailUnallowed']">email is not allowed</p>
+
+            </div>
+            <label for="password">password:</label>
+            <input type="password" id="password" formControlName="password">
+            <p class="error"
+                *ngIf="!form.get('personalDetails.password')?.valid && form.get('personalDetails.password')?.touched">
+                password is required
+            </p>
+            <div>
+                <input type="submit">
+            </div>
+        </div>
+        
+           
+    </form>
+    <a routerLink="Userreg">Take me to user Registration</a>
+</body>
+
+</html>

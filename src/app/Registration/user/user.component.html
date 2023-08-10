@@ -1,0 +1,24 @@
+
+<div class="form-container" >
+    <!-- <h3>{{title}}</h3> -->
+      <form  class="my-form" (ngSubmit)="onSubmit()">
+        <h2>Submit Form</h2>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" formControlName="name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="category">email:</label>
+          <input type="text" id="category" formControlName="category" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="prices">password:</label>
+          <input type="text" id="prices" formControlName="prices" class="form-control">
+        </div>
+        <button type="submit" class="btn-submit">Submit</button>
+      </form>
+    </div>
+    <a routerLink="Category" >Take me back</a>
+    <button routerLink="/Category" >Take me back</button>
+    
+  

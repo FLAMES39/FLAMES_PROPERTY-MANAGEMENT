@@ -1,0 +1,14 @@
+
+<div>
+    <p>Show This Paragraph</p>
+    <input type="checkbox"  [checked]="show" (click)="toggle()" >
+    <p *ngIf="show">
+        
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos cum iusto eos assumenda illo quidem qui quasi consequuntur magnam totam officia, a delectus quas, ullam repellendus in dolor, modi ipsum.
+    </p>
+
+<br>
+    <button (click)="increment()">INCREMENT</button>
+    <p>{{count}}</p>
+    <button (click)="Decrement()" >DECREMENT</button>
+</div>
