@@ -1,10 +1,10 @@
 
 .property{
     
-    justify-content: center;
-    gap: 3px;
+    justify-content: space-between;
+    gap: 1rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     
     
    
@@ -12,7 +12,7 @@
 .appartments{
    
     align-content: center;
-    justify-content: center;
+    justify-content: space-between;
     border: 2px solid black;
     padding: 1rem;
     height: 18rem;

@@ -5,6 +5,9 @@ import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { AuthService } from '../services/auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../states/appStates';
+import { userLogin } from '../states/Actions/userActions';
 
 @Component({
   selector: 'app-user-login',
@@ -14,7 +17,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit{
-  constructor( private fb:FormBuilder , private router:Router, private userservice:UserService,private authservice:AuthService){
+  constructor( private fb:FormBuilder , private router:Router, private store:Store<AppState>){
 
   }
   errorMessage=null
@@ -33,17 +36,21 @@ export class UserLoginComponent implements OnInit{
 
   }
   submitForm(){
-    this.userservice.logUser(this.form.value).subscribe( res=>{
-      res.message
-      // localStorage.setItem('token', res.token),
-      // localStorage.setItem('role', res.role)
-      // localStorage.setItem('message', res.message)
-      this.authservice.loggedIn(res)
-      this.router.navigate(['/allProperty'])
-    },
-    err=>{
-      this.errorMessage=err.message
-    })
+    // this.userservice.logUser(this.form.value).subscribe( res=>{
+    //   res.message
+    //   // localStorage.setItem('token', res.token),
+    //   // localStorage.setItem('role', res.role)
+    //   // localStorage.setItem('message', res.message)
+     
+    //   this.authservice.loggedIn(res)
+    //   this.router.navigate(['/allProperty'])
+      
+    // },
+    // err=>{
+    //   this.errorMessage=err.message
+    // })
+    this.store.dispatch(userLogin({loggedUser:this.form.value}))
+    
   }
 
   nav(){

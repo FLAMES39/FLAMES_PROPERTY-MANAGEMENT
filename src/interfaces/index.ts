@@ -100,7 +100,8 @@ export interface AddUserSuccess{
 export interface loggedUsers {
     password: string,
     email: string,
-    name:string
+    name:string,
+    role:string
    
 }
 export interface loggedUserSuccess{

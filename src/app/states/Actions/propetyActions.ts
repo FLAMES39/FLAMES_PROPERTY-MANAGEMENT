@@ -19,3 +19,6 @@ export const updatePropertySuccess=createAction('[updatePropertySuccess]-updateP
 export const updatePropertyFailure=createAction('[PropertyFailure]-PropertyFailure',props<{message:string}>())
 
 
+export const GetPropertyById=createAction('[GetPropertyById]-GetPropertyById',props<{propertyid:number}>())
+export const GetPropertyByIdSuccess=createAction('[GetPropertyByIdSuccess]-GetPropertyByIdSuccess',props<{message:string}>())
+export const GetPropertyByIdFailure=createAction('[GetPropertyByIdFailure]-GetPropertyByIdFailure',props<{message:string}>())

@@ -9,7 +9,10 @@ export interface propertyInterface {
     AddPropertySuccess: string,
     AddPropertyFailure: string,
     updatedpropertySuccess: string,
-    updatePropertyFailure: string
+    updatePropertyFailure: string,
+    GetPropertyByIdSuccess:string,
+    GetPropertyByIdFailure:string
+
 }
 const initialState: propertyInterface = {
     properties: [],
@@ -17,7 +20,9 @@ const initialState: propertyInterface = {
     AddPropertySuccess: '',
     AddPropertyFailure: '',
     updatedpropertySuccess: '',
-    updatePropertyFailure: ''
+    updatePropertyFailure: '',
+    GetPropertyByIdSuccess:'',
+    GetPropertyByIdFailure:''
 
 
 }
@@ -30,6 +35,11 @@ export const getPropError = createSelector(getPropertyState, (state) => state.pr
 const getAddPropertyState = createFeatureSelector<propertyInterface>('property')
 export const getAddPropertiesSuccess = createSelector(getAddPropertyState, (state) => state.AddPropertySuccess)
 export const getAddPropErrorFailure = createSelector(getAddPropertyState, (state) => state.AddPropertyFailure)
+
+const getPropertyStateById = createFeatureSelector<propertyInterface>('property')
+export const getPropertiesSuccessById = createSelector(getPropertyStateById, (state) => state.GetPropertyByIdSuccess)
+export const getPropertiesFailureById = createSelector(getPropertyStateById, (state) => state.GetPropertyByIdFailure)
+
 
 
 
@@ -80,6 +90,20 @@ export const propertyReducer = createReducer(
             ...state,
             updatedpropertySuccess:'',
             updatePropertyFailure:action.message
+        }
+    }),
+    on(propertyActions.GetPropertyByIdSuccess,(state,action)=>{
+        return{
+            ...state,
+            GetPropertyByIdFailure:'',
+            GetPropertyByIdSuccess:action.message
+        }
+    }),
+    on(propertyActions.GetPropertyByIdFailure,(state,action)=>{
+        return{
+            ...state,
+            GetPropertyByIdSuccess:'',
+            GetPropertyByIdFailure:action.message
         }
     })
 )

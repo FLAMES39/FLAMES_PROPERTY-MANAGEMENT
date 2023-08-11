@@ -8,6 +8,7 @@ export class AuthService {
   role!:string|null
   token!:string|null
   name!:string|null
+  message!:string|null
   constructor() { }
 
 
@@ -16,6 +17,14 @@ export class AuthService {
     localStorage.setItem('token', res.token)
     localStorage.setItem('name', res.name)
   }
+
+
+    LandlordloggedIn(res:loggedUserSuccess){
+    localStorage.setItem('role', res.role)
+    localStorage.setItem('token', res.token)
+    localStorage.setItem('name', res.name)
+  }
+
   logout(){
     localStorage.clear()
   }

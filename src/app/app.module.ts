@@ -16,6 +16,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { propertyReducer } from './states/Reducers/propertyReducer';
 import { EffectsModule } from '@ngrx/effects';
 import { propertyEffects } from './states/effects/propertyEffects';
+import { userEffects } from './states/effects/userEfects';
+import { LandlordEffects } from './states/effects/landLordEffects';
 
 @NgModule({
     declarations: [
@@ -33,7 +35,7 @@ import { propertyEffects } from './states/effects/propertyEffects';
         HttpClientModule,
         StoreModule.forRoot({paragraph:paragraphReducer, counter:counterReducer,property:propertyReducer}),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-        EffectsModule.forRoot([propertyEffects])
+        EffectsModule.forRoot([propertyEffects,userEffects,LandlordEffects])
     ]
 })
 export class AppModule { }

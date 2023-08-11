@@ -17,4 +17,5 @@ export class UserService {
   logUser(loggedUser:loggedUsers):Observable<loggedUserSuccess>{
     return this.http.post<loggedUserSuccess>('http://localhost:4000/user/login', loggedUser)
   }
+  
 }
