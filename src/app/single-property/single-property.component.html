@@ -1,1 +1,13 @@
-<p>single-property works!</p>
+<div *ngIf="Property | async as prop ;else noproperty" >
+<div>
+    <img src={{prop.imageUrl}} alt="">
+
+</div>    <h1>{{prop.name}}</h1>
+    <p>{{prop.location}}</p>
+    <p>{{prop.type}}</p>
+    <p>{{prop.price | currency}}</p>
+</div>
+
+<ng-template #noproperty>
+    <p>No Property Available!!</p>
+</ng-template>

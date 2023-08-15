@@ -9,9 +9,11 @@ export interface propertyInterface {
     AddPropertySuccess: string,
     AddPropertyFailure: string,
     updatedpropertySuccess: string,
-    updatePropertyFailure: string,
-    GetPropertyByIdSuccess:string,
-    GetPropertyByIdFailure:string
+    updatePropertyFailure: string, 
+    Propertyid:number
+    GetPropertyByIdFailure:string,
+    GetPropertyByIdSuccess: property | null;
+    selectedProperty: property |null
 
 }
 const initialState: propertyInterface = {
@@ -21,27 +23,30 @@ const initialState: propertyInterface = {
     AddPropertyFailure: '',
     updatedpropertySuccess: '',
     updatePropertyFailure: '',
-    GetPropertyByIdSuccess:'',
-    GetPropertyByIdFailure:''
-
+    Propertyid: 0,
+    selectedProperty: null,
+    GetPropertyByIdSuccess: null,
+    GetPropertyByIdFailure: ''
 
 }
 
 
 const getPropertyState = createFeatureSelector<propertyInterface>('property')
 export const getProperties = createSelector(getPropertyState, (state) => state.properties)
+export const getPropertiyid = createSelector(getPropertyState, (state) => state.Propertyid)
 export const getPropError = createSelector(getPropertyState, (state) => state.propertyError)
+export const getSingleProperty= createSelector(getProperties,getPropertiyid,(properties,Propertyid)=>properties.find(property=>property.Propertyid===Propertyid)as property)
 
-const getAddPropertyState = createFeatureSelector<propertyInterface>('property')
-export const getAddPropertiesSuccess = createSelector(getAddPropertyState, (state) => state.AddPropertySuccess)
-export const getAddPropErrorFailure = createSelector(getAddPropertyState, (state) => state.AddPropertyFailure)
+const  getAddPropertiesState = createFeatureSelector<propertyInterface>('property')
+export const getAddPropertiesSuccess = createSelector(getAddPropertiesState, (state) => state.AddPropertySuccess)
+export const getAddPropErrorFailure = createSelector(getAddPropertiesState, (state) => state.AddPropertyFailure)
 
-const getPropertyStateById = createFeatureSelector<propertyInterface>('property')
-export const getPropertiesSuccessById = createSelector(getPropertyStateById, (state) => state.GetPropertyByIdSuccess)
-export const getPropertiesFailureById = createSelector(getPropertyStateById, (state) => state.GetPropertyByIdFailure)
+const  getPropertiesSuccessByIdState = createFeatureSelector<propertyInterface>('property')
+export const getPropertiesSuccessById = createSelector(getPropertiesSuccessByIdState, (state) => state.properties)
+export const getPropertiesFailureById = createSelector(getPropertiesSuccessByIdState, (state) => state.selectedProperty)
 
 
-
+ 
 
 
 export const propertyReducer = createReducer(
@@ -51,7 +56,7 @@ export const propertyReducer = createReducer(
         return {
             ...state,
             propertyError: '',
-            properties: action.property
+           properties:action.property
         }
     }),
     on(propertyActions.GetPropertyFailure, (state, action): propertyInterface => {
@@ -59,6 +64,13 @@ export const propertyReducer = createReducer(
             ...state,
             propertyError: action.ErrorMessage,
             properties: []
+        }
+    }),
+    on(propertyActions.GetSinglePropertyById, (state, action): propertyInterface => {
+        return {
+            ...state,
+            Propertyid: action.Propertyid
+            
         }
     }),
 
@@ -85,24 +97,24 @@ export const propertyReducer = createReducer(
 
         }
     }),
-    on(propertyActions.updatePropertyFailure,(state,action)=>{
+    on(propertyActions.updatePropertyFailure,(state,action): propertyInterface=>{
         return{
             ...state,
             updatedpropertySuccess:'',
             updatePropertyFailure:action.message
         }
     }),
-    on(propertyActions.GetPropertyByIdSuccess,(state,action)=>{
+    on(propertyActions.GetPropertyByIdSuccess,(state,action): propertyInterface=>{
         return{
             ...state,
-            GetPropertyByIdFailure:'',
-            GetPropertyByIdSuccess:action.message
+            GetPropertyByIdSuccess: action.property,
+            selectedProperty:action.property,
+            propertyError:''
         }
     }),
-    on(propertyActions.GetPropertyByIdFailure,(state,action)=>{
+    on(propertyActions.GetPropertyByIdFailure,(state,action): propertyInterface=>{
         return{
             ...state,
-            GetPropertyByIdSuccess:'',
             GetPropertyByIdFailure:action.message
         }
     })

@@ -57,16 +57,19 @@ export class PropertyService {
   getProperties():Observable<property[]>{
     return this.http.get<property[]>('http://localhost:4000/property')
   }
-  getPropertiesById(propertyid:number):Observable<property>{
-    return this.http.get<property>('http://localhost:4000/property')
+  getPropertiesById(Propertyid:number):Observable<property>{
+    return this.http.get<property>( `http://localhost:4000/property/prop/${Propertyid}` )
+    
   }
+  
+
   AddProperty(newProperty:Newproperty):Observable<propertySucces>{
     return this.http.post<propertySucces>('http://localhost:4000/property',newProperty)
   }
-  UpdateProperty(propertyid:number,updatedProperty:updateproperty):Observable<updatedpropertySuccess>{
+  UpdateProperty(Propertyid:number,updatedProperty:updateproperty):Observable<updatedpropertySuccess>{
     return this.http.put<updatedpropertySuccess>('',updatedProperty )
   }
-  DeleteProperty(propertyid:number):Observable<updatedpropertySuccess>{
+  DeleteProperty(Propertyid:number):Observable<updatedpropertySuccess>{
     return this.http.delete<updatedpropertySuccess>('')
   }
 }

@@ -7,17 +7,18 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../states/appStates';
 import * as propertyAction from '../states/Actions/propetyActions'
 import { getProperties } from '../states/Reducers/propertyReducer';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-all-property',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './all-property.component.html',
   styleUrls: ['./all-property.component.css']
 })
 export class AllPropertyComponent implements OnInit {
   properties!:Observable<property[]>
-   constructor(  private store:Store<AppState> ){}
+   constructor(  private store:Store<AppState> ,private route:ActivatedRoute ,private router:Router){}
    count!:number
 
   ngOnInit(): void {
@@ -28,4 +29,7 @@ export class AllPropertyComponent implements OnInit {
     })
   }
 
+  singlelink(Propertyid:number){
+    this.router.navigate(['/single',Propertyid])
+  }
 }

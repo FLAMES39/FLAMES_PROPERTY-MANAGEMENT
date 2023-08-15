@@ -57,13 +57,16 @@ export class propertyEffects {
     })
     getPropertById$=createEffect(()=>{
         return this.action$.pipe(
-            ofType(propertyActions.GetPropertyById),
+            ofType(propertyActions.GetSinglePropertyById),
             mergeMap(action=>{
-                return this.propertyService.getPropertiesById(action.propertyid).pipe(
-               
+                return this.propertyService.getPropertiesById(action.Propertyid).pipe(
+                   map(property =>{
+                    return propertyActions.GetPropertyByIdSuccess({property})
+                   }),
+                    catchError(error=> of(propertyActions.GetPropertyByIdFailure({message:error})))
                 )
             }),
-            catchError(error=> of(propertyActions.GetPropertyByIdFailure({message:error})))
+            
         )
     })
 }

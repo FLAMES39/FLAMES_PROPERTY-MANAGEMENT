@@ -9,7 +9,7 @@ import { CounterComponent } from './counter/counter.component';
 const routes: Routes = [
 {path:'', component:HomeComponent},
 {path:'allProperty', canActivate:[ActivateService], loadComponent:()=> import('../app/all-property/all-property.component').then(m=>m.AllPropertyComponent)},
-{path:'single/:id',loadComponent:()=> import('../app/single-property/single-property.component').then(m=>m.SinglePropertyComponent)},
+{path:'single/:Propertyid',loadComponent:()=> import('../app/single-property/single-property.component').then(m=>m.SinglePropertyComponent)},
 {path:'RegLandlord' ,loadComponent:()=>import('../app/landlord-register/landlord-register.component').then(r=>r.LandlordRegisterComponent)},
 {path: 'LogLandlord', loadComponent:()=> import('../app/landlord-login/landlord-login.component').then(r=>r.LandlordLoginComponent)},
 {path:'footer',component:FooterComponent},
