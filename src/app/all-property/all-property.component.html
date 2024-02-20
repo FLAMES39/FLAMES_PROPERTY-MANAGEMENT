@@ -10,17 +10,21 @@
                 <p>{{prop.price | currency}}</p>
                 <img src={{prop.imageUrl}} alt="">
                 <p>{{prop.location}}</p> 
-                <button type="submit" (click)="singlelink(prop.Propertyid)">VIEW MORE</button>
+                <div class="btn">
+                    <button type="submit" (click)="singlelink(prop.Propertyid)">VIEW MORE</button>
+                   </div>
             </div>
             
         </div>
         <!-- <router-outlet></router-outlet> -->
     </div>
+    
     <div class=" noProperty" *ngIf="!properties">
         <p>No Available Properties!!!</p>
     </div>
 
 </div>
+
 
 <!-- <ng-template #noProperty>
     No AVAILABLRE PROPERTIES

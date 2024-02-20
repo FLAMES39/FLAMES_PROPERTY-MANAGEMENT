@@ -17,6 +17,15 @@
       <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="authservice.isLoggedIn()" (click)="authservice.logout()" >LOGOUT</a>
     </div>
   </div>
-    
-  <router-outlet></router-outlet>
+  
+  <router-outlet ></router-outlet>
+  <!-- <button (click)="showError()">ERROR</button>  -->
+  <!-- <ng-template appError></ng-template>  -->
+    <!-- <app-error  *ngIf="message" [message]="message" (close)="onclose()"></app-error>
+
+  <div appError></div> -->
+
 </div>
+
+
+

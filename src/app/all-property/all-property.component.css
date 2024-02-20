@@ -1,14 +1,20 @@
 
 .property{
-    
-    justify-content: space-between;
-    gap: 1rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    gap: 1rem;
+
     
     
    
 }
+
+.container{
+    height:20px
+}
+
+
 .appartments{
    
     align-content: center;
@@ -18,10 +24,14 @@
     height: 18rem;
     gap: 1rem;
     box-shadow: 0 0 20px rgba(2, 0, 3, 0.6);
-    width: 60%; 
+    width: 60%;
+    height: 90%; 
    
 }
-
+.btn{
+    display: flex;
+    justify-content: center;
+}
 .property .appartments  button {
    display: flex;
    padding: 3px;

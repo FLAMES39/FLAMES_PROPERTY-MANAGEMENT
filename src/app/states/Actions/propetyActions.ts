@@ -13,12 +13,11 @@ export const GetSinglePropertyById=createAction('[GetPropertyById]-GetPropertyBy
 export const GetPropertyByIdSuccess=createAction('[GetPropertyByIdSuccess]-GetPropertyByIdSuccess',props<{property:property}>())
 export const GetPropertyByIdFailure=createAction('[GetPropertyByIdFailure]-GetPropertyByIdFailure',props<{message:string}>())
 
-
 export const addProperty=createAction('[addProperty]-addProperty',props<{newProperty:Newproperty}>())
 export const AddPropertySuccess=createAction('[AddPropertySuccess]-AddPropertySuccess',props<{message:string}>())
 export const AddPropertyFailure=createAction('[PropertyFailure]-PropertyFailure',props<{message:string}>())
 
-export const updateProperty=createAction('[addProperty]-addProperty',props<{propertyid:number,updatedProperty:Newproperty}>())
+export const updateProperty=createAction('[updateProperty]-updateProperty',props<{propertyid:number,updatedProperty:Newproperty}>())
 export const updatePropertySuccess=createAction('[updatePropertySuccess]-updatePropertySuccess',props<{message:string}>())
 export const updatePropertyFailure=createAction('[PropertyFailure]-PropertyFailure',props<{message:string}>())
 

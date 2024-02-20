@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Route, Router } from '@angular/router';
   templateUrl: './land-lord.component.html',
   styleUrls: ['./land-lord.component.css']
 })
-export class HTTPClientModuleLandLordComponent {
+export class HTTPClientModuleLandLordComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private router:Router){
 

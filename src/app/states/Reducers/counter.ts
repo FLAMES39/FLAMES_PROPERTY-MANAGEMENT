@@ -28,7 +28,7 @@ export const counterReducer= createReducer(
     on(counterAction.Decrement, (state,action):counterInterface=>{
         return{
             ...state,
-            count:state.count - action.decrementBy
+            count :state.count - action.decrementBy
         }
     })
 

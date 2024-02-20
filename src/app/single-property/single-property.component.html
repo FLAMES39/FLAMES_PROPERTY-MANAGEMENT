@@ -1,13 +1,23 @@
-<div *ngIf="Property | async as prop ;else noproperty" >
-<div>
-    <img src={{prop.imageUrl}} alt="">
-
-</div>    <h1>{{prop.name}}</h1>
-    <p>{{prop.location}}</p>
-    <p>{{prop.type}}</p>
-    <p>{{prop.price | currency}}</p>
+<div class="body">
+    <div class="property" *ngIf="this.Property | async as prop ;else noproperty">
+        <div *ngIf="prop" class="prop">
+            <div class="image" style="padding-top:2rem">
+                <img src={{prop.imageUrl}} alt="" style="width:50vw">
+        
+            </div>
+            <div class="details">
+                <h1>{{prop.name | uppercase}}</h1>
+                <p>{{prop.location}}</p>
+                <p>{{prop.type}}</p>
+                <p>{{prop.price | currency}}</p>
+                <div style="padding-bottom: 0px;">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus aperiam iusto itaque quibusdam, labore in porro repudiandae nisi. Nostrum, in error? Ducimus non voluptates autem, ullam ab fugiat vel pariatur?</p>
+                </div>
+            </div>
+        </div>
+        </div>
+ 
+        <ng-template #noproperty>
+            <p>No Property Available!!</p> 
+        </ng-template>
 </div>
-
-<ng-template #noproperty>
-    <p>No Property Available!!</p>
-</ng-template>

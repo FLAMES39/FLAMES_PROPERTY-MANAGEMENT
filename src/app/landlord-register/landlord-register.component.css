@@ -1,13 +1,20 @@
+body{
+margin-top: 5px;
 
+}
 img{
     width: 50%;
+    /* align-items: center; */
+    text-align: center;
 }
 .project-form {
 
     display: flex;
     justify-content: space-between;
-    max-width: 30rem;
-    margin: 0 auto;
+    gap: 5px;
+    width: 50%;
+    margin:0 auto;
+    
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -30,13 +37,14 @@ img{
   input[type="email"],
   input[type="password"],
   input[type="propertyDocs"] {
-    width: 100%;
+    width: 50%; 
     padding: 2px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s ease;
+    /* max-width: 100%; */
   }
   
   input[type="text"]:focus,
@@ -44,6 +52,7 @@ img{
   input[type="password"]:focus {
     border-color: #007bff;
   }
+
   
   .error {
     color: red;
@@ -54,22 +63,22 @@ img{
   button {
     background-color: #007bff;
     color: #fff;
-    padding: 12px 20px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+
   }
   
   button:hover {
     background-color: #0056b3;
   }
   
-  .project-form {
+  /* .project-form {
     margin-top: 50px;
-  }
-  
-  /* Add more custom styles based on your design requirements */
+  } */
+ 
   

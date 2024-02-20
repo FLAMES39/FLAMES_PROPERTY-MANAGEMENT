@@ -7,7 +7,7 @@ import { AddUserSuccess, Newusers, loggedUserSuccess, loggedUsers } from 'src/in
   providedIn: 'root'
 })
 export class UserService {
-
+  
   constructor( private http:HttpClient) { }
   
   addUser(newUser:Newusers):Observable<AddUserSuccess>{

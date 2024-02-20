@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AppState } from '../states/appStates';
@@ -18,6 +18,7 @@ export class LandlordRegisterComponent {
   constructor(private fb:FormBuilder, private store:Store<AppState> ,private authservice:AuthService){}
   form!: FormGroup
   errorMessage=null
+  unAllowedName=['Ademola','Christian','Abiodun']
   ngOnInit(): void {
    this.form=this.fb.group({
     
@@ -28,7 +29,27 @@ export class LandlordRegisterComponent {
     
    })
   }
-  
+  checkEmail(controls:FormControl):Promise<{[x:string]:Boolean } |null>{
+    const promise= new Promise<{[x:string]:Boolean } |null>((resolve,reject)=>{
+      if(controls.value==="testemail@gmail.com"){
+        setTimeout(()=>{
+          resolve ({emailUnallowed:true})
+        },1500)
+      }
+     else{
+      resolve(null)
+     }
+    })
+    return promise
+ }
+
+
+ checkUnAllowedName=(controls:FormControl):{[x:string]:boolean} | null=>{
+    if(this.unAllowedName.includes(controls.value)){
+      return {unAllowedName:true}
+    }
+    return null
+ }
 onsubmit(){
 
 }

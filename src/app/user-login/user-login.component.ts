@@ -51,7 +51,7 @@ export class UserLoginComponent implements OnInit{
     // })
     this.store.dispatch(userLogin({loggedUser:this.form.value}))
     
-  }
+  }  
 
   nav(){
     this.router.navigate(['/UserReg'])

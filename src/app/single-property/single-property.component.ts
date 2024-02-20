@@ -36,14 +36,20 @@ export class SinglePropertyComponent implements OnInit{
   constructor(private store:Store<AppState>, private router:Router, private route:ActivatedRoute ,private propertyservice:PropertyService ){
 
   }
+  
   ngOnInit(): void {
     this.route.params.subscribe((p:Params)=>{
-      this.store.dispatch(propertyActions.GetProperty())
-      this.store.dispatch(propertyActions.GetPropertyByIdSuccess({property:p['propertyid']}))
-this.Property=this.propertyservice.getPropertiesById(p['Proprtyid'])
+     this.store.dispatch(propertyActions.GetProperty())
+      this.store.dispatch(propertyActions.GetPropertyByIdSuccess({property:p['property']}))
+      let propertyid = p['propertyid']
+      this.Property=this.propertyservice.getPropertiesById(p['Propertyid'])
     })
-    //  console.log(this.Property);
+     console.log(this.Property);
     
   }
 
 }
+
+
+
+

@@ -39,7 +39,7 @@ export class propertyEffects {
                     catchError(error => of(propertyActions.AddPropertyFailure({ message: error })))
                 )
             }),
-            //refreshing behaviour after adding a project house
+            //refreshing behaviour after adding a property house
             switchMap(() => [propertyActions.GetProperty()])
         )
     })
@@ -62,6 +62,7 @@ export class propertyEffects {
                 return this.propertyService.getPropertiesById(action.Propertyid).pipe(
                    map(property =>{
                     return propertyActions.GetPropertyByIdSuccess({property})
+                    
                    }),
                     catchError(error=> of(propertyActions.GetPropertyByIdFailure({message:error})))
                 )
