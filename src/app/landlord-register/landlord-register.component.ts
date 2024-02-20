@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AsyncValidatorFn, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AppState } from '../states/appStates';
@@ -22,8 +22,8 @@ export class LandlordRegisterComponent {
   ngOnInit(): void {
    this.form=this.fb.group({
     
-      name:['',[Validators.required]],
-      email:['',[Validators.required,Validators.email]],
+      name:['',[Validators.required,this.checkUnAllowedName]],  
+      email:[null,[Validators.required,Validators.email],[<AsyncValidatorFn>this.checkEmail]],
       password:['',[Validators.required,Validators.pattern('^[a-zA-Z0-9]{3,30}$')]],
       propertyDocs:['',[Validators.required]]
     
